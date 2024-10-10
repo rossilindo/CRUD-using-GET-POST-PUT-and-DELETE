@@ -1,4 +1,7 @@
 function carregarTarefas() {
+  const filtroConcluido = document.getElementById('filtro-concluido').checked;
+  const filtroPendente = document.getElementById('filtro-pendente').checked;
+
   fetch('/tarefas')
     .then(response => response.json())
     .then(tarefas => {
@@ -6,12 +9,26 @@ function carregarTarefas() {
       listaTarefas.innerHTML = '';
 
       tarefas.forEach(tarefa => {
-        const li = document.createElement('li');
-        li.textContent = `${tarefa.nome} - ${tarefa.status ? 'Concluída' : 'Pendente'} (ID: ${tarefa.id})`;
-        listaTarefas.appendChild(li);
+        const tarefaStatus = tarefa.status ? 'Concluída' : 'Pendente';
+
+        if ((filtroConcluido && tarefa.status) || (filtroPendente && !tarefa.status) || (!filtroConcluido && !filtroPendente)) {
+          const li = document.createElement('li');
+          li.textContent = `${tarefa.nome} - ${tarefaStatus} (ID: ${tarefa.id})`;
+          listaTarefas.appendChild(li);
+        }
       });
     });
 }
+
+document.getElementById('filtro-concluido').addEventListener('change', function() {
+  document.getElementById('filtro-pendente').checked = false;
+  carregarTarefas();
+});
+
+document.getElementById('filtro-pendente').addEventListener('change', function() {
+  document.getElementById('filtro-concluido').checked = false;
+  carregarTarefas();
+});
 
 document.getElementById('adicionar-tarefa').addEventListener('click', function() {
   const nomeTarefa = document.getElementById('nome-tarefa').value;
