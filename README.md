@@ -1,6 +1,6 @@
 # API de Lista de Tarefas
 
-<p>Projeto desenvolvido para a API (Aprendizagem por Projeto Integrado) do 1° Semestre do curso Desenvolvimento de software multiplataforma (DSM) em parceria com a equipe Inove do curso de Manufatura avançada no projeto Smart Farming<p>
+<p>Os alunos devem desenvolver uma API usando Express.js para gerenciar uma lista de tarefas. A API deve permitir adicionar, visualizar, atualizar e remover tarefas, além de garantir que não sejam criadas tarefas com o mesmo nome.<p>
 
 # Requisitos
  <p>- Node.js v12 ou superior</p>
@@ -15,7 +15,7 @@
  Um prompt de comando irá se abrir, e então execute o comando abaixo:
   
   ```
-  git clone https://github.com/CyberScrums/Projeto-Smart-Farming.git
+  git clone https://github.com/rossilindo/CRUD-using-GET-POST-PUT-and-DELETE .
   ``` 
 
  2. Com o VSCODE aberto, clique em `File` e depois em `Open Folder` ou aperte  `Ctrl+K Ctrl+O` e selecione a pasta onde você clonou o repositório
@@ -38,7 +38,7 @@
 
  1. Após a instalação das dependências, inicie o servidor:
   ```
-  npm start
+  node index.js
   ```
   > _Obs.: Ou use `yarn start` caso esteja usando o yarn_
 
